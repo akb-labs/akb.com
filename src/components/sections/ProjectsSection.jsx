@@ -9,7 +9,6 @@ export default function ProjectsSection() {
         {projects.map((project, index) => (
           <a key={index} href={project.url} target="_blank" rel="noreferrer" className="project-card">
             <img src={project.image} alt="" className="project-card-image" />
-            {project.caption && <p className="project-card-caption">{project.caption}</p>}
           </a>
         ))}
       </div>

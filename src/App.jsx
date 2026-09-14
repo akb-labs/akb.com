@@ -2,9 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Nav from './components/Nav.jsx'
 import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
-import Projects from './pages/Projects.jsx'
-import CoolOrgs from './pages/CoolOrgs.jsx'
-import Plates from './pages/Plates.jsx'
+import Contact from './pages/Contact.jsx'
 
 export default function App() {
   return (
@@ -13,9 +11,7 @@ export default function App() {
       <main className="main">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/cool-orgs" element={<CoolOrgs />} />
-          <Route path="/plates" element={<Plates />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
       <Footer />

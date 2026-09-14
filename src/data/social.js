@@ -1,4 +1,4 @@
 export const social = {
-  github: 'https://github.com/your-username',
-  linkedin: 'https://linkedin.com/in/your-username',
+  github: 'https://github.com/akb-labs',
+  linkedin: 'https://www.linkedin.com/in/anabonamassa',
 }

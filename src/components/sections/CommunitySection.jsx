@@ -2,7 +2,7 @@ import { orgs } from '../../data/orgs'
 
 export default function CommunitySection() {
   return (
-    <section id="community" className="section community-section">
+    <section id="cool-orgs" className="section community-section">
       <h2 className="section-heading section-heading-light">community building</h2>
       <p className="eyebrow eyebrow-light">
         These organizations do amazing work and hold a special place in my heart

@@ -3,9 +3,9 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { bio } from '../data/bio'
 
 const sectionLinks = [
-  { hash: '#home', label: 'Home' },
+  { hash: '#about', label: 'About' },
   { hash: '#projects', label: 'Projects' },
-  { hash: '#community', label: 'Community' },
+  { hash: '#cool-orgs', label: 'Cool Orgs' },
   { hash: '#personal', label: 'Personal' },
 ]
 
@@ -32,27 +32,31 @@ export default function Nav() {
         <Link to="/" className="nav-brand" onClick={() => setOpen(false)}>
           {bio.name}
         </Link>
-        <button
-          className="nav-toggle"
-          aria-label="Toggle navigation menu"
-          aria-expanded={open}
-          onClick={() => setOpen((prev) => !prev)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+
+        <div className="nav-right">
+          <nav className={`nav-links ${open ? 'nav-links-open' : ''}`}>
+            {sectionLinks.map((link) => (
+              <a key={link.hash} href={link.hash} className="nav-link" onClick={(e) => goToSection(e, link.hash)}>
+                {link.label}
+              </a>
+            ))}
+            <Link to="/contact" className="nav-link" onClick={() => setOpen(false)}>
+              Contact
+            </Link>
+          </nav>
+
+          <button
+            className="nav-toggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded={open}
+            onClick={() => setOpen((prev) => !prev)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
       </div>
-      <nav className={`nav-links ${open ? 'nav-links-open' : ''}`}>
-        {sectionLinks.map((link) => (
-          <a key={link.hash} href={link.hash} className="nav-link" onClick={(e) => goToSection(e, link.hash)}>
-            {link.label}
-          </a>
-        ))}
-        <Link to="/contact" className="nav-link" onClick={() => setOpen(false)}>
-          Contact
-        </Link>
-      </nav>
     </header>
   )
 }

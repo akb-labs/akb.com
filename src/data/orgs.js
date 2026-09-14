@@ -4,8 +4,8 @@ import { placeholderImage } from '../utils/placeholder'
 // image is a placeholder wordmark — swap in the real logo any time.
 export const orgs = [
   {
-    name: 'Jessica Vollman Foundation',
-    image: placeholderImage('Jessica Vollman Foundation', 340, 160, '#fff', '#111'),
+    name: 'VC Unleashed',
+    image: placeholderImage('VC Unleashed', 340, 160, '#fff', '#111'),
     orgUrl: '#',
     getInvolvedUrl: '#',
   },
@@ -16,8 +16,8 @@ export const orgs = [
     getInvolvedUrl: '#',
   },
   {
-    name: 'VC Unleashed',
-    image: placeholderImage('VC Unleashed', 340, 160, '#fff', '#111'),
+    name: 'Jessica Vollman Foundation',
+    image: placeholderImage('Jessica Vollman Foundation', 340, 160, '#fff', '#111'),
     orgUrl: '#',
     getInvolvedUrl: '#',
   },

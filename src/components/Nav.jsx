@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { bio } from '../data/bio'
+import poppyIcon from '../assets/poppy.jpg'
 
 const sectionLinks = [
   { hash: '#about', label: 'About' },
   { hash: '#projects', label: 'Projects' },
   { hash: '#cool-orgs', label: 'Cool Orgs' },
-  { hash: '#personal', label: 'Personal' },
+  { hash: '#personal', label: 'Personal', icon: poppyIcon },
 ]
 
 export default function Nav() {
@@ -35,11 +36,24 @@ export default function Nav() {
 
         <div className="nav-right">
           <nav className={`nav-links ${open ? 'nav-links-open' : ''}`}>
-            {sectionLinks.map((link) => (
-              <a key={link.hash} href={link.hash} className="nav-link" onClick={(e) => goToSection(e, link.hash)}>
-                {link.label}
-              </a>
-            ))}
+            {sectionLinks.map((link) =>
+              link.icon ? (
+                <a
+                  key={link.hash}
+                  href={link.hash}
+                  className="nav-icon-link"
+                  aria-label={link.label}
+                  title={link.label}
+                  onClick={(e) => goToSection(e, link.hash)}
+                >
+                  <img src={link.icon} alt={link.label} className="nav-icon-image" />
+                </a>
+              ) : (
+                <a key={link.hash} href={link.hash} className="nav-link" onClick={(e) => goToSection(e, link.hash)}>
+                  {link.label}
+                </a>
+              )
+            )}
             <Link to="/contact" className="nav-link" onClick={() => setOpen(false)}>
               Contact
             </Link>

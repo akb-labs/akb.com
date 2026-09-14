@@ -3,9 +3,9 @@ import { social } from '../data/social'
 import LinkedInIcon from '../components/LinkedInIcon.jsx'
 
 // Sends via FormSubmit (https://formsubmit.co) — a no-backend form relay.
-// The first submission ever sent to this address triggers a one-time
-// confirmation email from FormSubmit; submissions won't arrive until that's confirmed.
-const FORM_ENDPOINT = 'https://formsubmit.co/ajax/abonamassa@gmail.com'
+// Using the activation hash instead of the raw email keeps the address
+// out of the public JS bundle.
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/b05b3b93e83a22b4a3efcdd9c303f986'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })

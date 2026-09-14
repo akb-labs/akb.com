@@ -125,7 +125,6 @@ a {
   height: 30px;
   border-radius: 50%;
   overflow: hidden;
-  border: 1.5px solid var(--ink);
   flex-shrink: 0;
 }
 

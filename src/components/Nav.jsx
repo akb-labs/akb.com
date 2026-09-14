@@ -1,20 +1,37 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { bio } from '../data/bio'
 
-const links = [
-  { to: '/', label: 'Home', end: true },
-  { to: '/projects', label: 'Projects' },
-  { to: '/cool-orgs', label: 'Cool Orgs' },
-  { to: '/plates', label: 'Plates' },
+const sectionLinks = [
+  { hash: '#home', label: 'Home' },
+  { hash: '#projects', label: 'Projects' },
+  { hash: '#community', label: 'Community' },
+  { hash: '#personal', label: 'Personal' },
 ]
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  function goToSection(event, hash) {
+    event.preventDefault()
+    setOpen(false)
+    if (location.pathname !== '/') {
+      navigate('/' + hash)
+      return
+    }
+    const el = document.querySelector(hash)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    window.history.replaceState(null, '', hash)
+  }
 
   return (
     <header className="nav">
       <div className="nav-bar">
-        <span className="nav-brand">Your Name</span>
+        <Link to="/" className="nav-brand" onClick={() => setOpen(false)}>
+          {bio.name}
+        </Link>
         <button
           className="nav-toggle"
           aria-label="Toggle navigation menu"
@@ -27,17 +44,14 @@ export default function Nav() {
         </button>
       </div>
       <nav className={`nav-links ${open ? 'nav-links-open' : ''}`}>
-        {links.map((link) => (
-          <NavLink
-            key={link.to}
-            to={link.to}
-            end={link.end}
-            className={({ isActive }) => `nav-link ${isActive ? 'nav-link-active' : ''}`}
-            onClick={() => setOpen(false)}
-          >
+        {sectionLinks.map((link) => (
+          <a key={link.hash} href={link.hash} className="nav-link" onClick={(e) => goToSection(e, link.hash)}>
             {link.label}
-          </NavLink>
+          </a>
         ))}
+        <Link to="/contact" className="nav-link" onClick={() => setOpen(false)}>
+          Contact
+        </Link>
       </nav>
     </header>
   )

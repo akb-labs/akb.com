@@ -1,16 +1,25 @@
-import { bio } from '../data/bio'
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+import Hero from '../components/sections/Hero.jsx'
+import ProjectsSection from '../components/sections/ProjectsSection.jsx'
+import CommunitySection from '../components/sections/CommunitySection.jsx'
+import PersonalSection from '../components/sections/PersonalSection.jsx'
 
 export default function Home() {
+  const location = useLocation()
+
+  useEffect(() => {
+    if (!location.hash) return
+    const el = document.querySelector(location.hash)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }, [location.hash])
+
   return (
-    <section className="home">
-      <img src={bio.photo} alt={bio.name} className="home-photo" />
-      <div className="home-text">
-        <h1>{bio.name}</h1>
-        <p className="home-tagline">{bio.tagline}</p>
-        {bio.paragraphs.map((paragraph, index) => (
-          <p key={index}>{paragraph}</p>
-        ))}
-      </div>
-    </section>
+    <>
+      <Hero />
+      <ProjectsSection />
+      <CommunitySection />
+      <PersonalSection />
+    </>
   )
 }

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-export default function PlateModal({ plate, onClose }) {
+export default function ItemModal({ item, onClose }) {
   const overlayRef = useRef(null)
 
   useEffect(() => {
@@ -22,16 +22,16 @@ export default function PlateModal({ plate, onClose }) {
       onClick={handleOverlayClick}
       role="dialog"
       aria-modal="true"
-      aria-label={plate.name}
+      aria-label={item.name}
     >
       <div className="modal-content">
         <button className="modal-close" onClick={onClose} aria-label="Close">
           &times;
         </button>
-        <img src={plate.image} alt={plate.name} className="modal-image" />
+        <img src={item.image} alt={item.name} className="modal-image" />
         <div className="modal-text">
-          <h3>{plate.name}</h3>
-          <p>{plate.blurb}</p>
+          <h3>{item.name}</h3>
+          <p>{item.blurb}</p>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { useModalDismiss } from '../hooks/useModalDismiss'
+import InstagramIcon from './InstagramIcon.jsx'
 
 export default function OrgModal({ org, onClose }) {
   const { overlayRef, handleOverlayClick } = useModalDismiss(onClose)
@@ -23,24 +24,37 @@ export default function OrgModal({ org, onClose }) {
           <p className="org-card-description">{org.description}</p>
           {org.links.length > 0 && (
             <div className="org-card-links">
-              {org.links.map((link) => (
-                <a key={link.url} href={link.url} target="_blank" rel="noreferrer" className="org-card-link">
-                  {link.label}
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+              {org.links.map((link) =>
+                link.label === 'Instagram' ? (
+                  <a
+                    key={link.url}
+                    href={link.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="icon-link"
+                    aria-label="Instagram"
                   >
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
-                  </svg>
-                </a>
-              ))}
+                    <InstagramIcon />
+                  </a>
+                ) : (
+                  <a key={link.url} href={link.url} target="_blank" rel="noreferrer" className="org-card-link">
+                    {link.label}
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </a>
+                )
+              )}
             </div>
           )}
         </div>

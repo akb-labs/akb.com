@@ -1,19 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { useModalDismiss } from '../hooks/useModalDismiss'
 
 export default function ItemModal({ item, onClose }) {
-  const overlayRef = useRef(null)
-
-  useEffect(() => {
-    function handleKeyDown(event) {
-      if (event.key === 'Escape') onClose()
-    }
-    document.addEventListener('keydown', handleKeyDown)
-    return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [onClose])
-
-  function handleOverlayClick(event) {
-    if (event.target === overlayRef.current) onClose()
-  }
+  const { overlayRef, handleOverlayClick } = useModalDismiss(onClose)
 
   return (
     <div

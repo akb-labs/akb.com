@@ -332,41 +332,45 @@ a {
   transform: translateY(-3px);
 }
 
-.project-card-image {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 4px;
-  margin-bottom: 1.1rem;
-}
-
 .project-card-name {
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 1.3rem;
   color: var(--ink);
-  margin: 0 0 0.6rem;
+  margin: 0 0 0.25rem;
+}
+
+.project-card-role {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #666;
+  margin: 0 0 0.9rem;
 }
 
 .project-card-description {
   font-size: 0.95rem;
   line-height: 1.6;
   color: #2b2b2b;
-  margin: 0 0 0.9rem;
-}
-
-.project-card-stack {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  line-height: 1.5;
-  color: #444;
   margin: 0 0 1rem;
 }
 
-.project-card-label {
-  font-weight: 700;
+.project-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1.1rem;
+}
+
+.project-card-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(63, 95, 176, 0.1);
   color: var(--periwinkle-ink);
 }
 
@@ -380,16 +384,29 @@ a {
   color: #333;
 }
 
+.project-card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
 .project-card-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-weight: 600;
-  font-size: 0.8rem;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.82rem;
+  padding: 0.4rem 0.95rem;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
   text-decoration: none;
-  color: var(--periwinkle-ink);
+  color: var(--ink);
+}
+
+.project-card-link:hover {
+  background: var(--ink);
+  color: var(--white);
 }
 
 /* --- Community section --- */

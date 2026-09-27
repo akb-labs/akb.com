@@ -20,8 +20,12 @@ export const projects = [
     url: 'https://hot-or-not-xi.vercel.app/',
   },
   {
-    name: 'fantastic',
+    name: 'Fantastic',
     image: placeholderImage('', 300, 220, '#e7f3ee', '#105252'),
+    description:
+      "Fantastic is an AI agent I built to help me manage my fantasy football team. Each week it reads my league from Sleeper and gives me a report with start/sit calls, waiver pickups, injury updates, and weather flags. Because Sleeper's API is read-only, I make the final moves in the app. It also writes my trash talk for the group chat.",
+    inspo:
+      "I got invited into a league with friends. I don't follow American football and had never played fantasy, so I drafted on vibes: Libras, middle children, and Latino players, because that's who I am. Once the season started, I needed slightly more strategy to handle injuries, bye weeks, and waiver decisions, so I built an agent to do the scouting for me.",
     url: '#',
   },
   {

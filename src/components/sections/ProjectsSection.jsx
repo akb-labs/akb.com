@@ -3,7 +3,7 @@ import { projects } from '../../data/projects'
 export default function ProjectsSection() {
   return (
     <section id="projects" className="section projects-section">
-      <p className="eyebrow eyebrow-light">Products and tools I'm working on</p>
+      <p className="eyebrow eyebrow-light">Things I've built, launched, and sold</p>
       <h2 className="section-heading">projects</h2>
       <div className="projects-grid">
         {projects.map((project) => (

@@ -1,13 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
+import { ViteReactSSG } from 'vite-react-ssg'
 import App from './App.jsx'
+import Home from './pages/Home.jsx'
+import Contact from './pages/Contact.jsx'
 import './styles/index.css'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
-)
+export const createRoot = ViteReactSSG({
+  routes: [
+    {
+      path: '/',
+      element: <App />,
+      children: [
+        { index: true, element: <Home /> },
+        { path: 'contact', element: <Contact /> },
+      ],
+    },
+  ],
+})

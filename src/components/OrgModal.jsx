@@ -1,5 +1,11 @@
 import { useModalDismiss } from '../hooks/useModalDismiss'
 import InstagramIcon from './InstagramIcon.jsx'
+import LinkedInIcon from './LinkedInIcon.jsx'
+
+const ICON_LINKS = {
+  Instagram: InstagramIcon,
+  LinkedIn: LinkedInIcon,
+}
 
 export default function OrgModal({ org, onClose }) {
   const { overlayRef, handleOverlayClick } = useModalDismiss(onClose)
@@ -24,17 +30,18 @@ export default function OrgModal({ org, onClose }) {
           <p className="org-card-description">{org.description}</p>
           {org.links.length > 0 && (
             <div className="org-card-links">
-              {org.links.map((link) =>
-                link.label === 'Instagram' ? (
+              {org.links.map((link) => {
+                const Icon = ICON_LINKS[link.label]
+                return Icon ? (
                   <a
                     key={link.url}
                     href={link.url}
                     target="_blank"
                     rel="noreferrer"
                     className="icon-link"
-                    aria-label="Instagram"
+                    aria-label={link.label}
                   >
-                    <InstagramIcon />
+                    <Icon />
                   </a>
                 ) : (
                   <a key={link.url} href={link.url} target="_blank" rel="noreferrer" className="org-card-link">
@@ -54,7 +61,7 @@ export default function OrgModal({ org, onClose }) {
                     </svg>
                   </a>
                 )
-              )}
+              })}
             </div>
           )}
         </div>

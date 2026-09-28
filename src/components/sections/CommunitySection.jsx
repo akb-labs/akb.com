@@ -19,6 +19,9 @@ export default function CommunitySection() {
             ) : (
               <span className="org-tile-name">{org.name}</span>
             )}
+            <span className="sr-only">
+              {org.name} — {org.role}. {org.description}
+            </span>
           </button>
         ))}
       </div>

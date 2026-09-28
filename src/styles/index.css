@@ -468,6 +468,20 @@ a {
   color: var(--ink);
 }
 
+/* Visually hidden but present in the DOM — readable by screen readers,
+   crawlers, and text-based tools that fetch the page without clicking. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* Org content — reused inside OrgModal */
 
 .org-card-logo {

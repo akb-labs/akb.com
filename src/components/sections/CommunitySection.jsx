@@ -19,6 +19,7 @@ export default function CommunitySection() {
             ) : (
               <span className="org-tile-name">{org.name}</span>
             )}
+            <span className="org-tile-badge" aria-hidden="true">+</span>
             <span className="sr-only">
               {org.name} — {org.role}. {org.description}
             </span>
